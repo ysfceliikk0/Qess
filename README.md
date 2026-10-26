@@ -1,40 +1,38 @@
-# 📥 Universal File Drop Catcher
+# Universal File Drop Catcher
 
-**Universal File Drop Catcher**, bilgisayarınıza **Quick Share**, **Phone Link (Windows Bağlantısı)** veya **Tarayıcılar (Chrome, Edge, Brave, Firefox)** üzerinden yeni bir dosya düştüğünde ekran kenarından pürüzsüz bir yaylanma (`OutBack`) animasyonuyla beliren, dosyaları doğrudan sürükleyip (Drag & Drop) istediğiniz uygulamaya bırakmanızı sağlayan modern bir **PyQt6** masaüstü aracıdır.
+This project is a desktop utility application designed to improve file management workflow. It continuously monitors specific directories (such as Downloads, Quick Share, and Phone Link folders) and temporarily stores incoming files in an interactive dropzone located at the edge of the screen.
 
----
+## Features
 
-## ✨ Öne Çıkan Özellikler
+* File Monitoring: Automatically detects new incoming files using file system events, while ignoring temporary or incomplete downloads.
+* Interactive Dropzone: A hidden tray at the edge of the screen that expands upon mouse hover, displaying the captured files.
+* Drag and Drop Integration: Files can be dragged directly from the dropzone into other applications, directories, or the desktop.
+* Native Sharing: Utilizes the native sharing interface of the operating system to quickly share captured files.
+* Customization: Includes a settings menu to adjust the screen edge position, interface themes, and display duration.
+* System Integration: Runs in the background via the system tray and can be configured to start automatically on system boot.
 
-- **⚡ Otomatik Kaynak Tespiti:** Gelen dosyanın **Quick Share** (`⚡`), **Phone Link** (`📱`) veya **Tarayıcı / İndirilenler** (`🌐`) kaynaklı olduğunu alt klasörleriyle birlikte (`recursive=True`) tespit eder; `.crdownload` ve `.part` gibi geçici indirme dosyalarını yoksayar.
-- **🗄️ İki Aşamalı Morf Dosya Rafı (Edge Dropzone):**
-  - **Stage 0 (Görünmez Algılama):** Seçilen ekran kenarının tam ortasında (`Üst` seçildiğinde `y=0` sıfır boşluklu) görünmez bir yakınlık alanı bekler.
-  - **Stage 1 & 2 (Morfing):** Fare kenara yaklaştığında zarif bir çubuk belirir; üzerine gelindiğinde veya dosya sürüklendiğinde çubuk morf animasyonuyla genişleyerek **Dosya Rafı**na dönüşür.
-- **🔗 Akıllı UI Entegrasyonu:** Tepsi yönü ile Popup yönü aynı seçildiğinde (Varsayılan: **Üst Kenar**), yeni gelen dosyalar ayrı bir pencere açmak yerine doğrudan kenar tepsisini morf ederek içinde gösterilir.
-- **✨ Dinamik Genişleyen (Morphing) Aksiyon Butonları:** **Kapat (`✕`)**, **Tepsiye Ekle (`📥`)**, **Kopyala (`📋`)** ve **Paylaş (`🔗`)** butonlarının üzerine gelindiğinde buton ve ana pencere `OutBack` eğrisiyle yatayda genişler.
-- **📤 Yerel Paylaşım Menüsü (Native Share UI):**
-  - **Windows 10/11:** `winsdk` / WinRT `IDataTransferManagerInterop` üzerinden yerel Windows **Paylaş** penceresini açar.
-  - **Linux (Fedora / GNOME / KDE):** `xdg-desktop-portal` DBus arayüzünü ve yerel paylaşım araçlarını tetikler.
-- **🎨 5 Dinamik Tema (Gradient & Solid):** *Okyanus*, *Gün Batımı*, *Gece Yarısı*, *Koyu Mod* ve *Sade Beyaz* temalarıyla tüm arayüzü anında günceller.
-- **🚀 Sistem Başlangıcında Çalıştırma (Auto-Start):** Windows Kayıt Defteri (`winreg`) ve Linux `~/.config/autostart/filecatcher.desktop` desteği.
+## Technologies Used
 
----
+* Python: The core programming language used for the application logic.
+* PyQt6: Used for building the graphical user interface, handling animations, drag-and-drop mechanics, and system tray operations.
+* Watchdog: Implemented to monitor file system events in real-time across multiple directories.
+* Winsdk: Used on Windows environments to trigger the native OS share dialog.
 
-## 🛠️ Kurulum ve Çalıştırma
+## Installation and Setup
 
-### 1. Depoyu Klonlayın
-```bash
-git clone https://github.com/ysfceliikk0/Qess
-cd Qess
-```
+1. Clone this repository to your local machine.
+2. Install the required dependencies using pip:
+   pip install -r requirements.txt
+3. Run the application:
+   python main.py
 
-## 📂 Proje Yapısı
-
+To build a standalone executable file, you can use PyInstaller:
+pyinstaller --noconsole --onefile --windowed main.py
 ```text
 universal-file-drop-catcher/
-├── main.py            # Ana uygulama, Watchdog dinleyici ve PyQt6 Morf UI bileşenleri
-├── config.json        # Kullanıcı ayarları (Yönler, süre, tema, başlangıç durumu)
-├── requirements.txt   # Python bağımlılıkları (PyQt6, watchdog, winsdk)
-├── .gitignore         # Git tarafından yoksayılacak dosyalar
-└── README.md          # Proje dokümantasyonu
+├── main.py        
+├── config.json   
+├── requirements.txt   
+├── .gitignore        
+└── README.md     
 ```
