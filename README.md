@@ -24,27 +24,9 @@
 
 ### 1. Depoyu Klonlayın
 ```bash
-git clone https://github.com/kullaniciadi/universal-file-drop-catcher.git
-cd universal-file-drop-catcher
+git clone https://github.com/ysfceliikk0/Qess
+cd Qess
 ```
-
-### 2. Sanal Ortam Oluşturun ve Bağımlılıkları Yükleyin
-```bash
-python -m venv venv
-# Windows:
-venv\Scripts\activate
-# Linux / macOS:
-source venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-### 3. Uygulamayı Başlatın
-```bash
-python main.py
-```
-
----
 
 ## 📂 Proje Yapısı
 
