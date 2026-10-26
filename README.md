@@ -1,4 +1,4 @@
-# Universal File Drop Catcher
+# Universal File Drop Catcher - Qess
 
 This project is a desktop utility application designed to improve file management workflow. It continuously monitors specific directories (such as Downloads, Quick Share, and Phone Link folders) and temporarily stores incoming files in an interactive dropzone located at the edge of the screen.
 
