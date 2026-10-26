@@ -1,0 +1,23 @@
+{
+  "popup_duration_seconds": 10,
+  "popup_direction": "top",
+  "tray_direction": "top",
+  "theme": "ocean",
+  "run_on_startup": false,
+  "ignore_extensions": [
+    ".crdownload",
+    ".part",
+    ".tmp",
+    ".partial",
+    ".opdownload",
+    ".download"
+  ],
+  "watch_paths": [
+    "~/Downloads",
+    "~/İndirilenler",
+    "~/Quick Share",
+    "~/Phone Link",
+    "~/Windows Bağlantısı",
+    "~/CrossDevice"
+  ]
+}
